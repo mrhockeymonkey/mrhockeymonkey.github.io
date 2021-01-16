@@ -1,0 +1,30 @@
+site_name: My Personal KB
+repo_url: https://github.com/mrhockeymonkey/KB
+theme:
+  name: material
+  features:
+    # - navigation.instant
+    #- navigation.sections
+    - navigation.tabs
+extra_javascript:
+  - highlight.pack.js
+  - config.js
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.mark
+
+nav:
+  - C#:
+    - Patterns: "C#/Patterns/README.md"
+    - Collections: "C#/Collections.md"
+    - Stack vs Heap: "C#/Stack vs Heap.md"
+  - Angular: ""
+  - Docker: ""
+  - Kerberos: ""
+  - Theory:
+    - Principles: "Theory/Principles.md"

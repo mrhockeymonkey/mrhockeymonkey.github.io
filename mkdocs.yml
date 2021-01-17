@@ -1,7 +1,7 @@
 site_name: My Personal KB
 site_url: https://mrhockeymonkey.github.io/
 site_author: Scott Matthews
-#repo_url: https://github.com/mrhockeymonkey/KB
+repo_url: https://github.com/mrhockeymonkey/mrhockeymonkey.github.io
 theme:
   name: material
   palette:
@@ -26,6 +26,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
   - pymdownx.mark
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
   # - Angular: ""
   # - Docker: ""

@@ -12,10 +12,10 @@ stringBuilder
 
 Pattern Variations
 
-- [SimpleBuilder](https://github.com/mrhockeymonkey/KB/blob/master/docs/C%23/Patterns/Builder/SimpleBuilder.cs) - A simple example.
-- [RecursiveGenericBuilder](https://github.com/mrhockeymonkey/KB/blob/master/docs/C%23/Patterns/Builder/RecursiveGenericBuilder.cs) - Allows multiple inheritance of a base builder using generics. Use when you want your builder to be extended.
-- [FunctionalBuilder](https://github.com/mrhockeymonkey/KB/blob/master/docs/C%23/Patterns/Builder/FunctionalBuilder.cs) - A functional approach to builder pattern which applies a collection of actions/functions to the object.
-- [FunctionalBuilderGeneric]("https://github.com/mrhockeymonkey/KB/blob/master/docs/C%23/Patterns/Builder/FunctionalBuilderGeneric.cs") - Functional builder generic base class. 
+- [SimpleBuilder](./Builder/SimpleBuilder.cs) - A simple example.
+- [RecursiveGenericBuilder](./Builder/RecursiveGenericBuilder.cs) - Allows multiple inheritance of a base builder using generics. Use when you want your builder to be extended.
+- [FunctionalBuilder](./Builder/FunctionalBuilder.cs) - A functional approach to builder pattern which applies a collection of actions/functions to the object.
+- [FunctionalBuilderGeneric](./Builder/FunctionalBuilderGeneric.cs) - Functional builder generic base class. 
 
 
 ## Factory

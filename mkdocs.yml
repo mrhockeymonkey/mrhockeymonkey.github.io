@@ -1,7 +1,15 @@
 site_name: My Personal KB
-repo_url: https://github.com/mrhockeymonkey/KB
+site_url: https://mrhockeymonkey.github.io/
+site_author: Scott Matthews
+#repo_url: https://github.com/mrhockeymonkey/KB
 theme:
   name: material
+  palette:
+    primary: indigo
+    accent: purple
+  icon:
+    logo: fontawesome/solid/code
+  favicon: favicon.ico
   features:
     # - navigation.instant
     #- navigation.sections
@@ -11,20 +19,21 @@ extra_javascript:
   - config.js
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
-
+plugins:
+  - search
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.snippets
   - pymdownx.mark
 
+  # - Angular: ""
+  # - Docker: ""
+  # - Kerberos: ""
+  # - Theory:
+  #   - Principles: "Theory/Principles.md"
 nav:
   - C#:
     - Patterns: "C#/Patterns/README.md"
     - Collections: "C#/Collections.md"
     - Stack vs Heap: "C#/Stack vs Heap.md"
-  - Angular: ""
-  - Docker: ""
-  - Kerberos: ""
-  - Theory:
-    - Principles: "Theory/Principles.md"

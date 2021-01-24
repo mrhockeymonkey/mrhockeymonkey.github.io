@@ -11,9 +11,9 @@ theme:
     logo: fontawesome/solid/code
   favicon: favicon.ico
   features:
-    # - navigation.instant
-    #- navigation.sections
+    #- navigation.instant
     - navigation.tabs
+    #- navigation.sections
 extra_javascript:
   - highlight.pack.js
   - config.js
@@ -28,8 +28,8 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.mark
   - pymdownx.caret
-  - toc:
-      permalink: true
+  # - toc:
+  #     permalink: true
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -46,5 +46,6 @@ nav:
       - Assertions: C#/Testing/assertions.md
       - Moq: C#/Testing/moq.md
       - Auto Fixture: C#/Testing/auto-fixture.md
+      - ASP.NET Tests: C#/Testing/asp-net-tests.md
     - Collections: "C#/Collections.md"
     - Stack vs Heap: "C#/Stack vs Heap.md"

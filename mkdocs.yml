@@ -34,13 +34,10 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
-  # - Angular: ""
-  # - Docker: ""
-  # - Kerberos: ""
-  # - Theory:
-  #   - Principles: "Theory/Principles.md"
 nav:
+  #- Angular: ""
   - C#:
+    - Cheatsheet: C#/cheatsheet.md
     - Patterns: "C#/Patterns/README.md"
     - Testing:
       - Assertions: C#/Testing/assertions.md
@@ -49,3 +46,12 @@ nav:
       - ASP.NET Tests: C#/Testing/asp-net-tests.md
     - Collections: "C#/Collections.md"
     - Stack vs Heap: "C#/Stack vs Heap.md"
+  #- Powershell: ""
+  #- Python: ""
+  - Theory:
+    - Conversion: Theory/conversion.md
+    - Data Structures: Theory/data-structures.md
+    - Principles: Theory/principles.md
+    - Sorting Algorithms: Theory/sorting-algorithm.md
+    - Tree Structures: tree-structures.md
+

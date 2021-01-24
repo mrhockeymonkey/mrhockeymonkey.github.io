@@ -28,6 +28,8 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.mark
   - pymdownx.caret
+  - toc:
+      permalink: true
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -40,5 +42,9 @@ markdown_extensions:
 nav:
   - C#:
     - Patterns: "C#/Patterns/README.md"
+    - Testing:
+      - Assertions: C#/Testing/assertions.md
+      - Moq: C#/Testing/moq.md
+      - Auto Fixture: C#/Testing/auto-fixture.md
     - Collections: "C#/Collections.md"
     - Stack vs Heap: "C#/Stack vs Heap.md"

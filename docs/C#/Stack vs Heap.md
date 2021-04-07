@@ -3,8 +3,12 @@
 ## Stack
 Each thread has its own stack memory (could be considered the state of the thread). Value types are stored on the stack and removed once they loose scope, i.e. the method has finished and returned control to the caller. 
 
+Value types are defined using the `struct` keyword 
+
 ## Heap
 Any thread can access data stored on the heap. Reference Types, i.e. inherit System.Object, are placed on the heap and a reference (or pointer) to them is placed on the stack. When memory pressure occurs the GC stops all threads, removes any data that no longer has references and compacts the remaining data, which can be expensive.
+
+Reference types are defined using the `class` keyword.
 
 ## String is a Refernce type that acts like a Value type
 In .Net Framework Strings are immutable reference types. All .net datatypes has default size except string and user type. So String is a Reference type, because it does not have default allocation size.

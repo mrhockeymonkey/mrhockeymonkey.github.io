@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\KB\\docs\\C#\\Patterns\\Builder\\Builder.csproj",
+      "projectUniqueName": "C:\\Code\\mrhockeymonkey.github.io\\docs\\C#\\Patterns\\Builder\\Builder.csproj",
       "projectName": "Builder",
-      "projectPath": "C:\\Code\\KB\\docs\\C#\\Patterns\\Builder\\Builder.csproj",
+      "projectPath": "C:\\Code\\mrhockeymonkey.github.io\\docs\\C#\\Patterns\\Builder\\Builder.csproj",
       "packagesPath": "C:\\Users\\Scott\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\KB\\docs\\C#\\Patterns\\Builder\\obj\\",
+      "outputPath": "C:\\Code\\mrhockeymonkey.github.io\\docs\\C#\\Patterns\\Builder\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Scott\\AppData\\Roaming\\NuGet\\NuGet.Config",

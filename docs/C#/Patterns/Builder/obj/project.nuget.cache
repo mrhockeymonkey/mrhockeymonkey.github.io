@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mncp8YuS6XJ1GPCdzGDnRQYGpNSxQwPv/rbAilKRuD/sjIw5a97lclaw4E7syT3eE9fbyftVZ+ZS75w/3iZSPw==",
+  "dgSpecHash": "7sI1v+/WwQpGWeCTUdvykbAVCcjxjE0La2sAfgXl2dK+SFasJMEgUbK6Jb0G7JJezcy0FD3X10NZM/a4j+I1UQ==",
   "success": true,
-  "projectFilePath": "C:\\Code\\KB\\docs\\C#\\Patterns\\Builder\\Builder.csproj",
+  "projectFilePath": "C:\\Code\\mrhockeymonkey.github.io\\docs\\C#\\Patterns\\Builder\\Builder.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

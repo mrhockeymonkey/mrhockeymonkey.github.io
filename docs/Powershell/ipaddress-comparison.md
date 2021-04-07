@@ -1,4 +1,7 @@
-﻿#Define the Networks you wish to check
+﻿# IP Address Comparison
+
+```powershell
+#Define the Networks you wish to check
 $Networks = @(
     '192.168.1.0/8'
     '172.16.1.0/16'
@@ -49,3 +52,4 @@ $PossibleSubnets = $Networks | ForEach-Object {
         }
     }
 }
+```

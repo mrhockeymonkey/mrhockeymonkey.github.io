@@ -1,0 +1,16 @@
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\bin\Debug\net5.0\TaskExamples.exe
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\bin\Debug\net5.0\TaskExamples.deps.json
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\bin\Debug\net5.0\TaskExamples.runtimeconfig.json
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\bin\Debug\net5.0\TaskExamples.runtimeconfig.dev.json
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\bin\Debug\net5.0\TaskExamples.dll
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\bin\Debug\net5.0\ref\TaskExamples.dll
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\bin\Debug\net5.0\TaskExamples.pdb
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\TaskExamples.csprojAssemblyReference.cache
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\TaskExamples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\TaskExamples.AssemblyInfoInputs.cache
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\TaskExamples.AssemblyInfo.cs
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\TaskExamples.csproj.CoreCompileInputs.cache
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\TaskExamples.dll
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\ref\TaskExamples.dll
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\TaskExamples.pdb
+C:\Code\mrhockeymonkey.github.io\docs\C#\Misc\TaskExamples\obj\Debug\net5.0\TaskExamples.genruntimeconfig.cache

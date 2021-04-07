@@ -29,9 +29,19 @@ Pattern Variations
 [5]: https://github.com/mrhockeymonkey/mrhockeymonkey.github.io/blob/master/docs/C%23/Patterns/Builder/FacetedBuilder.cs
 
 ## Factory
+A component responsible for the wholesale (not piecewise) creation of objects
 
-`[:octicons-file-code-24: SimpleBuilder][1]`
-: something blah blah
+## Prototype
+A partially or fully initilized object that you copy/clone and make use of. 
 
-`bar`
-: i am alive
+To clone the object you can either:
+
+- Implement your own deep copy logic or,
+- Serialize and deserialize.
+
+## Prototype
+A components that is instantiated only once.
+
+## Singleton
+
+## Adapter

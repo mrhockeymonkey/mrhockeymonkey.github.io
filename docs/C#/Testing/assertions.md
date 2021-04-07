@@ -1,6 +1,8 @@
 # NUnit Assertions
 NUnit provides the framework for writing tests. An alternative to NUnit is XUnit
 
+[Docs :octicons-link-external-24:](https://docs.nunit.org/articles/nunit/writing-tests/constraints/Constraints.html){_target=blank}
+
 ```c#
 [TestFixture]
 public class SomeClassTests {
@@ -21,30 +23,33 @@ public class SomeClassTests {
 }
 ```
 
-There are two "types" of asserts, classic and constraints. 
-
-[Classic]()
-[Constraints](https://docs.nunit.org/articles/nunit/writing-tests/constraints/Constraints.html){_target=blank}
+## Basics
 
 ```c#
-Assert.AreEqual(1, 1) // classic, easy to read
-Assert.That(array, Has.Exactly(1).EqualTo(obj)) // constraint, more powerful
+// classic, easy to read
+Assert.AreEqual(1, 1) 
+
+// constraint, more powerful
+Assert.That(array, Has.Exactly(1).EqualTo(obj))
 ```
 
-Prefer to use contraints for consistency. `It` and `Has` are helper classes to create constraints
+Prefer to use contraints for consistency. 
+`Is` and `Has` are helper classes to create constraints
 
-## Basics
 ```c#
-Assert.That(obj, It.Not.Null.And.Not.Empty) // 
+// null or emptiness tests
+Assert.That(obj, Is.Not.Null.And.Not.Empty);
+Assert.That(list, Is.Empty);
+
+// type tests
+Assert.That(obj, Is.TypeOf<T>()); // check type exactly, i.e. runtime type
+Assert.That(obj,  Is.InstanceOf<IEnumerable<T>>()); // check obj is type or derived from type
+
 Assert.That(obj, Has.Property("Version"));
-
-Assert.That(obj, Is.TypeOf<T>(typeof(T))) // check type exactly, i.e. runtime type
-Assert.IsInstanceOf<IEnumerable<T>>(obj) // check obj is type or derived from type
-
 Assert.That(array, Is.EquivalentTo(array)); // test that two IEnumerables have same elements in any order
 Assert.That(array, Has.Exactly(3).Items); // test size of IEnumerable
 Assert.That(array, Has.None.EqualTo("foo"))
-Assert.That(array, Is.Unique)
+Assert.That(array, Is.Unique) // no duplicates
 Assert.That(new int[] { 1, 2, 3 }, Has.Exactly(1).EqualTo(1).And.Exactly(1).EqualTo(3)); // <Constraint>.And.<Constraint>
 
 Assert.That(
@@ -72,5 +77,5 @@ Assert.That("not a null", myConstraint);
 Assert.That(SomeMethod, Throws.TypeOf<ArgumentException>());
 Assert.That(() => { throw new ArgumentException(); }, Throws.ArgumentException);
 Assert.That(() => SomeMethod(actual), Throws.Nothing);
-.Has.Message("My Error message")???
+Assert.That(async () => await SomeMethodAsync(), Throws.Exception);
 ```

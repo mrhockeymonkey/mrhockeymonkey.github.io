@@ -1,3 +1,4 @@
-# Powershell Playground
+# Powershell
 
-This repo is a collection of all my scripts, modules, experiments, wip, successes & failures and anything else i want to be able to reference back to. Some scripts will be unfinished and unworked but in mostly good condition i hope. 
+[:octicons-link-external-24: GitHub]("https://github.com/mrhockeymonkey/mrhockeymonkey.github.io/tree/master/docs/Powershell") 
+

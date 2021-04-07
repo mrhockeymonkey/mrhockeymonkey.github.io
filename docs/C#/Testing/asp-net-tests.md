@@ -1,6 +1,6 @@
 # ASP.NET Tests
 
-## Background Service Tests
+## Background Service
 ```c#
 [Test]
 public async Task BackgroundService_ShouldCatchAndLogErrors(){
@@ -33,7 +33,7 @@ _sut = _fixture
     .Create();
 ```
 
-## Controller Endpoint Attributes Tests
+## Controller Endpoint Attributes
 ```c#
 [Test]
 public void MyController_UsesCorrectAttributes(){
@@ -44,7 +44,7 @@ public void MyController_UsesCorrectAttributes(){
 }
 ```
 
-## Controller Endpoint Response Tests
+## Controller Endpoint Response
 ```c#
 // Arrange
 var books = _fixture.CreateMany<BookDto>().ToList();
@@ -58,7 +58,7 @@ var response = await _sut.MyEndpointMethod();
 // Assert
 _bookRepoMock.Verify(m  => m.GetBooks(), Times.Once);
 
-Assert.That(response, It.TypeOf(typeof(OkObjectResponse)));
+Assert.That(response, Is.TypeOf<OkObjectResponse>()));
 var objResponse = response as OkObjectResponse;
 
 Assert.That(objResponse?.Value, Is.Not.Null);

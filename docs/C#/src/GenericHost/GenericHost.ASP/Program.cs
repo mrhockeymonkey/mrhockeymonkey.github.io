@@ -52,6 +52,9 @@ namespace GenericHost.ASP
                     configureApp.AddInMemoryCollection(new Dictionary<string, string>() {
                         { "MyMemoryKey", "MyMemoryValue" }
                     });
+
+                    // add existing or externally built config, maybe if you need to apply validation to it
+                    configureApp.AddConfiguration(new ConfigurationBuilder().AddJsonFile("foo.json").Build());
                 })
                 .ConfigureLogging(logging =>
                 {

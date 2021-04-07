@@ -53,6 +53,7 @@ nav:
       - AKKA.NET Tests: C#/Testing/akka-net-tests.md
     - Collections: "C#/Collections.md"
     - Stack vs Heap: "C#/Stack vs Heap.md"
+    - Hostings: "C#/src/GenericHost/README.md"
   - Powershell: 
     - Overview: "Powershell/README.md"
     - Encoding: "Powershell/encoding.md"

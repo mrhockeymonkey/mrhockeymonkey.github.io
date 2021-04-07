@@ -29,7 +29,7 @@ namespace GenericHost.ASP
             Console.WriteLine($"MyJsonKey: {Configuration["MyJsonKey"]}");
             Console.WriteLine($"MyIniKey: {Configuration["section1:MyIniKey"]}");
             Console.WriteLine($"MyXmlKey: {Configuration["MyXmlKey"]}");
-            Console.WriteLine($"MyMemoryKey: {Configuration["MyMemoryKey"]}");
+            Console.WriteLine($"MyMemoryKey: {Configuration.GetValue<string>("MyMemoryKey")}");
 
             // Options pattern: Add stongly typed options to service container
             services.Configure<SomethingOptions>(Configuration.GetSection(SomethingOptions.Something));

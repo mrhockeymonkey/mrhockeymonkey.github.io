@@ -1,0 +1,848 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Scott Matthews">
+      
+      
+        <link rel="canonical" href="https://mrhockeymonkey.github.io/Theory/data-structures/">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>Data Structures - My Personal KB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="purple">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#array-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Personal KB" class="md-header__button md-logo" aria-label="My Personal KB" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="m278.9 511.5-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2 43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6 144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Personal KB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Structures
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/mrhockeymonkey/mrhockeymonkey.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../C%23/cheatsheet/" class="md-tabs__link">
+        C#
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Powershell/" class="md-tabs__link">
+        Powershell
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../conversion.md" class="md-tabs__link md-tabs__link--active">
+        Theory
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Personal KB" class="md-nav__button md-logo" aria-label="My Personal KB" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="m278.9 511.5-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2 43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6 144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    My Personal KB
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/mrhockeymonkey/mrhockeymonkey.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        C#
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="C#" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          C#
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/cheatsheet/" class="md-nav__link">
+        Cheatsheet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/linq/" class="md-nav__link">
+        LINQ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/delegates/" class="md-nav__link">
+        Delegates
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/Patterns/" class="md-nav__link">
+        Patterns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      <label class="md-nav__link" for="__nav_1_5">
+        Testing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Testing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/Testing/assertions/" class="md-nav__link">
+        Assertions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/Testing/moq/" class="md-nav__link">
+        Moq
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/Testing/auto-fixture/" class="md-nav__link">
+        Auto Fixture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/Testing/asp-net-tests/" class="md-nav__link">
+        ASP.NET Tests
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/Testing/akka-net-tests/" class="md-nav__link">
+        AKKA.NET Tests
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/Collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/Stack%20vs%20Heap/" class="md-nav__link">
+        Stack vs Heap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/src/GenericHost/" class="md-nav__link">
+        Hostings
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Powershell
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Powershell" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Powershell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Powershell/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Powershell/encoding/" class="md-nav__link">
+        Encoding
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Powershell/ipaddress-comparison/" class="md-nav__link">
+        IPAddress
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Theory
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Theory" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Theory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conversion.md" class="md-nav__link">
+        Conversion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data Structures
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Data Structures
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fixed-arrays" class="md-nav__link">
+    Fixed Arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circular-array" class="md-nav__link">
+    Circular Array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-arrays" class="md-nav__link">
+    Dynamic Arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#singly-linked-lists" class="md-nav__link">
+    Singly Linked Lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doubly-linked-lists-with-tail-pointer" class="md-nav__link">
+    Doubly Linked Lists (with tail pointer)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stacks-lifo" class="md-nav__link">
+    Stacks (LIFO)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queues-fifo" class="md-nav__link">
+    Queues (FIFO)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../principles.md" class="md-nav__link">
+        Principles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting-algorithm/" class="md-nav__link">
+        Sorting Algorithms
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tree-structures.md" class="md-nav__link">
+        Tree Structures
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/mrhockeymonkey/mrhockeymonkey.github.io/edit/master/docs/Theory/data-structures.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="array-notes">Array Notes<a class="headerlink" href="#array-notes" title="Permanent link">&para;</a></h1>
+<h2 id="fixed-arrays">Fixed Arrays<a class="headerlink" href="#fixed-arrays" title="Permanent link">&para;</a></h2>
+<p>Run times:</p>
+<ul>
+<li><strong>Insertion Random: O(n)</strong> - It’s easy to insert randomly anywhere in the array. Getting to the location of insertion take O(1) time. However, if you want to preserve order, there is a chance you will have to move O(n) elements to put the number there. Therefore, it's O(n).</li>
+<li><strong>Insertion Front: O(n)</strong> – Inserting in the front of an array will usually take O(n) time, as you have to shift up to n elements backwards to insert properly.  </li>
+<li><strong>Insertion Back: O(1)</strong> – Nothing has to be shifted, so you can accomplish this in O(1) time.    </li>
+<li><strong>Deletion Random: O(n)</strong> – Deleting randomly from the array is just like inserting randomly. You can get to and remove the element in O(1) time. However, if you need to delete an element and not create a hole, then this becomes O(n) as you will need to shift everything to cover the hole.     </li>
+<li><strong>Deletion Front: O(n)</strong> – Same as Insertion, a shift of up to n elements will be required.  </li>
+<li><strong>Search Unsorted: O(n)</strong> – If the array is unsorted, there is no way of knowing where the element is going to be. So at worst case, it’s going to be a search of the entire array to find the element.  </li>
+<li><strong>Search Sorted: O(logn)</strong> – If the array is sorted, we can keep cutting the array in half to find the element we are searching for. This means it will take at most logn operations to find our element. (Reverse exponential).  </li>
+</ul>
+<h2 id="circular-array">Circular Array<a class="headerlink" href="#circular-array" title="Permanent link">&para;</a></h2>
+<p>Circular behaviour can be acheived using front and back markers and moving them when inserting data. Becuase you do not know if data will be added to the front or back, Modulo is used to to prevent indexing outside of the array. </p>
+<div class="highlight"><pre><span></span><code>front: (f - 1) mod arraySize
+back: (b + 1) mod arraySize
+
+example adding 8 to the front: 
+[0,4,3,-,-,-] --&gt; [0,4,3,-,-,8]
+</code></pre></div>
+<p>This improves the following run times becuase no data need to be shifted.
+- <strong>Insertion Front: O(1)</strong>
+- <strong>Deletion Front: O(1)</strong></p>
+<h2 id="dynamic-arrays">Dynamic Arrays<a class="headerlink" href="#dynamic-arrays" title="Permanent link">&para;</a></h2>
+<p>When the array capacity has been reached but you wish to insert more data if we were to add just 1 more capacity this would result on O(n) operations creating a new array in memory. Instead we can double the capacity which results in O(log(n)).</p>
+<p>As n -&gt; infinity this can be approximated as constant time O(1). This is true because the rate of occurence of an O(n) operation, i.e. when we resize the array, is ever decreasing. If the occurence was constant like 1 O(n) for every 999 O(1) we could not make this approximation.</p>
+<h2 id="singly-linked-lists">Singly Linked Lists<a class="headerlink" href="#singly-linked-lists" title="Permanent link">&para;</a></h2>
+<p>Works by storing data "individually" in nodes. Each node points to the next.</p>
+<p><div class="highlight"><pre><span></span><code>Head --&gt; &lt;Q:.&gt;  --&gt; &lt;W:.&gt; --&gt; &lt;E:.&gt; --&gt; &lt;R:.&gt; --&gt; Null
+</code></pre></div>
+The benefit of this approach is memory efficiency. There is no wasted space. As a caveat the runtimes for inserting/deleting at the fron become constant time and the back becomes n-time. One drawback is that indexing is not possible and neither is binary search regardless of if the list is sorted.</p>
+<p>-<strong>Insert(Rand): O(n)</strong> - To insert at a particular location, one has to traverse the list up to that point to insert there.
+-<strong>Insert(Front): O(1)</strong> – We just move the head pointer to the new node and point the new node at the old head.
+-<strong>Insert(Back): O(n)</strong> – We will have to traverse the entire array to get to the back. (We will find a way to improve this a little bit later)
+-<strong>Delete(Random/Back): O(n)</strong> – We must traverse the length of the element we want to delete
+-<strong>Delete(Front): O(1)</strong> – Just as easy as inserting, just have to remove the first element and repoint the head pointer
+-<strong>Search(Sorted): O(n)</strong> – Doesn’t matter if it’s sorted or not. We at worst have to traverse the entirety of the list to find the element. (And if the element isn’t in the list, we have to traverse the entire list to figure that out. )
+-<strong>Search(Unsorted): O(n)</strong> – Exactly the same as the Sorted.</p>
+<h2 id="doubly-linked-lists-with-tail-pointer">Doubly Linked Lists (with tail pointer)<a class="headerlink" href="#doubly-linked-lists-with-tail-pointer" title="Permanent link">&para;</a></h2>
+<p>Singly linked lists can be improved by adding a pointer to the previous node and by introducing a tail pointer.</p>
+<p>This improves the below runtimes:
+-<strong>Insert(Back): O(n) --&gt; O(1)</strong>
+-<strong>Delete(Back): O(n) --&gt; O(1)</strong></p>
+<h2 id="stacks-lifo">Stacks (LIFO)<a class="headerlink" href="#stacks-lifo" title="Permanent link">&para;</a></h2>
+<p>Stacks are used for a variety of operations in computer science. They can do anything from helping to navigate through a maze, to helping traverse a graph. Stacks work by only allow insert/remove to occur at one end, typically an array or linked list, i.e. they are Last-In-First-Out (LIFO)</p>
+<div class="highlight"><pre><span></span><code><span class="n">pop</span><span class="p">()</span> <span class="c1">// removes the top most element</span>
+<span class="n">push</span><span class="p">()</span> <span class="c1">// adds new element to the top of the stack</span>
+</code></pre></div>
+<h2 id="queues-fifo">Queues (FIFO)<a class="headerlink" href="#queues-fifo" title="Permanent link">&para;</a></h2>
+<p>A queue is similar to a stack, but with one large difference, insertions and deletions take part from separate ends. They are good for processing data when order is important like CPU instructions or tree traversals.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Enqueue</span><span class="p">()</span> <span class="c1">// add element to the &quot;back&quot; of the queue</span>
+<span class="n">Dequeue</span><span class="p">()</span> <span class="c1">// take element from the &quot;front&quot; of the queue</span>
+<span class="c1">// &quot;front and &quot;back&quot; are ambiguous, it depends on how the queue is implemented.</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../Powershell/ipaddress-comparison/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              IPAddress
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../sorting-algorithm/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Sorting Algorithms
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+    
+  </body>
+</html>

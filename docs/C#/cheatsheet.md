@@ -12,6 +12,9 @@ public MyClass(String p1, String p2) => (_p1, _p2) = (p1, p2)
 // pattern matching, s is assigned within if only when true
 if (shape is Square s)
     return s.Side * s.Side;
+    
+// instead of someEnumerable.ToArray();
+var arr = someEnumerable as EventViewDto[] ?? someEnumerable.ToArray();
 ```
 
 ## Syntax

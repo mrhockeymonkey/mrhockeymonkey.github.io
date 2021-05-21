@@ -44,4 +44,3 @@ A components that is instantiated only once.
 
 ## Singleton
 
-## Adapter

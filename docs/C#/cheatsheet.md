@@ -46,6 +46,23 @@ var name ??= "dave";
 == != 
 ```
 
+## Access Modifiers
+```c#
+
+protected // can only access from this or derived class
+internal // can only access from within same assembly
+
+protected internal // protected OR internal
+// i.e. public internally, only via inheritance externally
+
+private protected // protected AND internal
+// i.e. only via inheritance and only internally. 
+
+sealed // disable further inheritance
+// my opinion, use for anything not specifically designed for inheritance in a library
+// but not so important in appliction code
+```
+
 ## Numerics
 
 use int for whole numbers

@@ -85,9 +85,7 @@ nav:
     - linq: "C#/linq.md"
     - project-file: "C#/project-file.md"
     - spans: "C#/spans.md"
-    - Stack: "C#/Stack"
-    - vs: "vs"
-    - Heap: "Heap.md"
+    - stack-vs-heap: "C#/stack-vs-heap.md"
     - Patterns:
       - README: "C#/Patterns/README.md"
       - structural-patterns: "C#/Patterns/structural-patterns.md"

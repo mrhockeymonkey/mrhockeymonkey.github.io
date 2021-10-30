@@ -39,6 +39,7 @@ function AppendToNav {
     # add each markdown
     for M in $MARKDOWN_FILES; do
         VAL=$(echo $M | sed 's/.\/docs\///')
+        echo "Adding $M"
         echo "$(printf '%*s' "$INDENT_2")- $(basename $M .md): \"$VAL\"" >> mkdocs.yml
     done
 

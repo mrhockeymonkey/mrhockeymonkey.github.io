@@ -29,7 +29,7 @@ function AppendToNav {
 
     # if there are no markdown files there is no point including this dir
     if [ -z "$MARKDOWN_FILES" ]; then
-        echo "No markdown or dirs found in $DIR"
+        echo "[WARN] No markdown or dirs found in $DIR"
         return 0
     fi
 

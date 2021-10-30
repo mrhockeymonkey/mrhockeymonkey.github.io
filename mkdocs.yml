@@ -86,11 +86,6 @@ nav:
     - project-file: "C#/project-file.md"
     - spans: "C#/spans.md"
     - stack-vs-heap: "C#/stack-vs-heap.md"
-    - Patterns:
-      - README: "C#/Patterns/README.md"
-      - structural-patterns: "C#/Patterns/structural-patterns.md"
-      - Structural:
-        - README: "C#/Patterns/Structural/README.md"
     - Testing:
       - akka-net-tests: "C#/Testing/akka-net-tests.md"
       - asp-net-tests: "C#/Testing/asp-net-tests.md"
@@ -103,6 +98,10 @@ nav:
   - Kerberos:
     - linux-setup: "Kerberos/linux-setup.md"
     - README: "Kerberos/README.md"
+  - Misc:
+    - README: "Misc/README.md"
+    - DIY:
+      - painting: "Misc/DIY/painting.md"
   - Powershell:
     - encoding: "Powershell/encoding.md"
     - ipaddress-comparison: "Powershell/ipaddress-comparison.md"

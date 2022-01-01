@@ -1,5 +1,25 @@
 # Prometheus Notes
 
+## Federate Data
+```plain
+/federate?match[]={__name__!=""}
+```
+
+```yaml
+honor_labels: true
+honor_timestamps: true
+params:
+  match[]:
+  - '{__name__!=""}'
+scrape_interval: 1m
+scrape_timeout: 10s
+metrics_path: /federate
+scheme: http
+static_configs:
+- targets:
+  - my-prometheus.com
+```
+
 ```yaml
 - record: http_requests:rate
   expr: sum by (service, code) (rate(http_request_duration_seconds_count[5m]))

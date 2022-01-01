@@ -1,22 +1,11 @@
 #!/bin/bash
-
-# dynamically build nav section
-# recursively searchs folders looking for README.md before stopping
-# note: subdirs will be ignored if the parent dir does not have at least one article
+IFS=';'
 
 function FindDirs {
     local DIR=$1
     local DIR_NAME=$(basename $1)
-    echo $(find $DIR -maxdepth 1 -type d -not \( -name $DIR_NAME \))
-}
-
-function AddMarkdownToNav {
-    local DIR=$1
-    FILES=$(find $DIR -type f -name '*.md')
-
-    for F in $FILES; do
-        echo $F
-    done
+    local DIRS=$(find $DIR -maxdepth 1 -type d -not \( -name $DIR_NAME \) -printf "%p;")
+    echo "$DIRS"
 }
 
 function AppendToNav {
@@ -24,32 +13,58 @@ function AppendToNav {
     DIR_NAME=$(basename $1)
     local INDENT_1=$(($2+2))
     local INDENT_2=$(($2+4))
-    DIRS=$(FindDirs $DIR)
-    MARKDOWN_FILES=$(find $DIR -maxdepth 1 -type f -name '*.md')
+    MARKDOWN_FILES=$(find $DIR -maxdepth 1 -type f -name '*.md' -printf "%p;")
 
     # if there are no markdown files there is no point including this dir
     if [ -z "$MARKDOWN_FILES" ]; then
-        echo "[WARN] No markdown or dirs found in $DIR"
+        echo "[INFO] No markdown found in $DIR, moving on"
         return 0
+    else 
+        # add this folder
+        echo "$(printf '%*s' "$INDENT_1")- $(basename $DIR_NAME):" >> mkdocs.yml
+
+        # add each markdown
+        for M in $MARKDOWN_FILES; do
+            VAL=$(echo $M | sed 's/.\/docs\///')
+            echo "Adding $M"
+            echo "$(printf '%*s' "$INDENT_2")- $(basename $M .md): \"$VAL\"" >> mkdocs.yml
+        done
     fi
 
-    # add this folder
-    echo "$(printf '%*s' "$INDENT_1")- $(basename $DIR_NAME):" >> mkdocs.yml
-
-    # add each markdown
-    for M in $MARKDOWN_FILES; do
-        VAL=$(echo $M | sed 's/.\/docs\///')
-        echo "Adding $M"
-        echo "$(printf '%*s' "$INDENT_2")- $(basename $M .md): \"$VAL\"" >> mkdocs.yml
-    done
-
     # recursively add subfolders
-    for D in $DIRS; do
-        AppendToNav $D $INDENT_1 
-    done
+    DIRS=$(FindDirs $DIR)
+    echo $DIRS
+    if [ -z "$DIRS" ]; then
+        echo "[INFO] No dirs found in $DIR, moving on"
+    else
+        for D in $DIRS; do
+            echo "Processing $D"
+            AppendToNav $D $INDENT_1 
+        done
+    fi
 }
 
+MAIN_DIRS="C#;\
+Powershell;\
+Theory"
+
 cp mkdocs.template.yml mkdocs.yml
-for TOP_LEVEL_DIR in $(FindDirs ./docs); do
-    AppendToNav $TOP_LEVEL_DIR 0
+for MAIN_SECTION in $MAIN_DIRS; do
+    AppendToNav "./docs/$MAIN_SECTION" 0
+done
+
+# add misc section
+
+MISC_DIRS="Bash;\
+Docker;\
+Angular;\
+Coffee;\
+DIY;\
+Kerberos;\
+Prometheus;\
+Helm"
+
+echo "$(printf '%*s' "2")- $(basename "Etc"):" >> mkdocs.yml
+for MISC_SECTION in $MISC_DIRS; do
+    AppendToNav "./docs/$MISC_SECTION" 2
 done

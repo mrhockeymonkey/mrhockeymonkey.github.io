@@ -14,3 +14,10 @@ https://www.pluralsight.com/courses/outside-in-tdd
 https://www.pluralsight.com/courses/encapsulation-solid
 
 https://www.amazon.co.uk/Dependency-Injection-NET-Second-Seemann/dp/161729473X/ref=pd_lpo_1?pd_rd_i=161729473X&psc=1
+
+
+# Snip
+
+``` title=".browserslistrc"
+--8<--​ "docs/foo.txt"
+```

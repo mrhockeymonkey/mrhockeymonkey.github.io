@@ -1,12 +1,8 @@
 site_name: My Personal KB
 site_url: https://mrhockeymonkey.github.io/
 site_author: Scott Matthews
-repo_url: https://github.com/mrhockeymonkey/mrhockeymonkey.github.io
 theme:
   name: material
-  palette:
-    primary: indigo
-    accent: purple
   icon:
     logo: fontawesome/solid/code
   favicon: favicon.ico
@@ -14,13 +10,8 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - toc.integrate
-static_templates:
-  - "Powershell/README.md"
-# extra_javascript:
-#   - highlight.pack.js
-#   - config.js
-# extra_css:
-#   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
+extra_css:
+  - extra.css
 plugins:
   - search
 markdown_extensions:
@@ -39,78 +30,56 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
-  #- Angular: ""
-  # - C#:
-  #   - Cheatsheet: C#/cheatsheet.md
-  #   - LINQ: C#/linq.md
-  #   - Delegates: C#/delegates.md
-  #   - Patterns: "C#/Patterns/README.md"
-  #   - Testing:
-  #     - Assertions: C#/Testing/assertions.md
-  #     - Moq: C#/Testing/moq.md
-  #     - Auto Fixture: C#/Testing/auto-fixture.md
-  #     - ASP.NET Tests: C#/Testing/asp-net-tests.md
-  #     - AKKA.NET Tests: C#/Testing/akka-net-tests.md
-  #   - Collections: "C#/Collections.md"
-  #   - Stack vs Heap: "C#/Stack vs Heap.md"
-  #   - Hostings: "C#/src/GenericHost/README.md"
-  # - Powershell: 
-  #   - Overview: "Powershell/README.md"
-  #   - Encoding: "Powershell/encoding.md"
-  #   - IPAddress: "Powershell/ipaddress-comparison.md"
-  # #- Python: ""
-  # - Theory:
-  #   - Conversion: Theory/conversion.md
-  #   - Data Structures: Theory/data-structures.md
-  #   - Principles: Theory/principles.md
-  #   - Sorting Algorithms: Theory/sorting-algorithm.md
-  #   - Tree Structures: Theory/tree-structures.md
-
-  - Angular:
-    - calling-APIs: "Angular/calling-APIs.md"
-    - cheatsheet: "Angular/cheatsheet.md"
-    - lazy-loading: "Angular/lazy-loading.md"
-    - routing: "Angular/routing.md"
-    - rxjs: "Angular/rxjs.md"
-    - syntax: "Angular/syntax.md"
-  - Bash:
-    - Cheatsheet: "Bash/Cheatsheet.md"
   - C#:
-    - asynchrony: "C#/asynchrony.md"
-    - cheatsheet: "C#/cheatsheet.md"
+    - Asynchrony: "C#/Asynchrony.md"
+    - Cheatsheet: "C#/Cheatsheet.md"
     - Collections: "C#/Collections.md"
-    - delegates: "C#/delegates.md"
-    - EF: "C#/EF"
-    - Core: "Core.md"
-    - linq: "C#/linq.md"
-    - project-file: "C#/project-file.md"
-    - spans: "C#/spans.md"
-    - stack-vs-heap: "C#/stack-vs-heap.md"
+    - Delegates: "C#/Delegates.md"
+    - Equality: "C#/Equality.md"
+    - Linq: "C#/Linq.md"
+    - Project File: "C#/Project File.md"
+    - Spans: "C#/Spans.md"
+    - Stack vs Heap: "C#/Stack vs Heap.md"
+    - Libs:
+      - EF Core: "C#/Libs/EF Core.md"
     - Testing:
-      - akka-net-tests: "C#/Testing/akka-net-tests.md"
-      - asp-net-tests: "C#/Testing/asp-net-tests.md"
-      - assertions: "C#/Testing/assertions.md"
-      - auto-fixture: "C#/Testing/auto-fixture.md"
-      - moq: "C#/Testing/moq.md"
-  - Docker:
-    - Centos: "Docker/Centos.md"
-    - README: "Docker/README.md"
-  - Kerberos:
-    - linux-setup: "Kerberos/linux-setup.md"
-    - README: "Kerberos/README.md"
-  - Misc:
-    - README: "Misc/README.md"
-    - DIY:
-      - painting: "Misc/DIY/painting.md"
+      - Akka.net Tests: "C#/Testing/Akka.net Tests.md"
+      - ASP.net Tests: "C#/Testing/ASP.net Tests.md"
+      - Assertions: "C#/Testing/Assertions.md"
+      - Auto Fixture: "C#/Testing/Auto Fixture.md"
+      - Moq: "C#/Testing/Moq.md"
   - Powershell:
-    - encoding: "Powershell/encoding.md"
-    - ipaddress-comparison: "Powershell/ipaddress-comparison.md"
+    - Encoding: "Powershell/Encoding.md"
+    - IP Address Comparison: "Powershell/IP Address Comparison.md"
     - README: "Powershell/README.md"
-  - Prometheus:
-    - notes: "Prometheus/notes.md"
   - Theory:
-    - conversion: "Theory/conversion.md"
-    - data-structures: "Theory/data-structures.md"
-    - principles: "Theory/principles.md"
-    - sorting-algorithm: "Theory/sorting-algorithm.md"
-    - tree-structures: "Theory/tree-structures.md"
+    - Closure: "Theory/Closure.md"
+    - Conversion: "Theory/Conversion.md"
+    - Data Structures: "Theory/Data Structures.md"
+    - Principles: "Theory/Principles.md"
+    - Sorting Algorithm: "Theory/Sorting Algorithm.md"
+    - Tree Structures: "Theory/Tree Structures.md"
+  - Etc:
+    - Bash:
+      - Cheatsheet: "Bash/Cheatsheet.md"
+    - Docker:
+      - Centos: "Docker/Centos.md"
+      - README: "Docker/README.md"
+    - Angular:
+      - Calling APIs: "Angular/Calling APIs.md"
+      - Cheatsheet: "Angular/Cheatsheet.md"
+      - Lazy Loading: "Angular/Lazy Loading.md"
+      - Routing: "Angular/Routing.md"
+      - Rxjs: "Angular/Rxjs.md"
+      - Syntax: "Angular/Syntax.md"
+    - Coffee:
+      - README: "Coffee/README.md"
+    - DIY:
+      - painting: "DIY/painting.md"
+    - Kerberos:
+      - Linux Setup: "Kerberos/Linux Setup.md"
+      - README: "Kerberos/README.md"
+    - Prometheus:
+      - Notes: "Prometheus/Notes.md"
+    - Helm:
+      - README: "Helm/README.md"

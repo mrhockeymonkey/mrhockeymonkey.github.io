@@ -45,6 +45,9 @@ services:
 ## Command Line
 
 ```bash
+# list commands
+ls /usr/bin/kafka*
+
 # list topics 
 kafka-topics --zookeeper localhost --describe
 

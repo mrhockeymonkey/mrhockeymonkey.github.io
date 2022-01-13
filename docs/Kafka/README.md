@@ -53,4 +53,7 @@ kafka-topics --zookeeper localhost --describe
 
 # update topics
 kafka-topics --zookeeper localhost --alter --topic cmdb_export --partitions 2
+
+# view consumer group offset and lag
+kafka-consumer-groups --bootstrap-server broker:29092 --all-topics --all-groups --describe
 ```

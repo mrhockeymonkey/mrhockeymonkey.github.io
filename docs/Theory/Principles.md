@@ -63,3 +63,39 @@ i.e. if you can understand what the client "meant" you should accept their input
 Another way to deal with if an operation is legal to invoke is to use Options/Maybe
 
 Encapsulation is all about making it easier for client programmers, including your later self, to use the classes you write.
+
+
+### Avoid Branching Logic
+A common mistake is to design interfaces that allow clients to implement features. 
+
+Better OO design is to create instance that force its implementation to **provide** features.  
+
+```c#
+void ClaimWarranty(SoldArticle article)
+{
+    DateTime now = new()
+    
+    // bad
+    // IsValidOn only helps us complete operation on the calling end which is procedural
+    // operations should be located inside the objects which they concern
+    if (article.Warranty.IsValidOn(now))
+    {
+        Console.WriteLine("Money Back");
+    }
+
+    // good
+    // by writing from the consumer context we come up with the right interface needed, Claim()
+    // claim deals with all warranty related logic and allows caller to provide a callback function. 
+    // this is object orientated design
+    article.Warranty.Claim(now, () => Console.WriteLine("Money Back"));
+}
+```
+
+### Avoid Enums and Switches
+These are details and when business requirements changes they will need to be updated, they are not dynamic. 
+
+Good OO design is to have an object that defines behaviour. When that behaviour changes instead of updating the code you would use composition to replace that object with a new one. An alternative is to use a dictionary to map a case to an action. This can be substituted dynamically at runtime with a factory method or by other means which is more flexible and OO. i.e. you can update the branching logic without havong to touch the class that relies on it. 
+
+
+### Use Immutable Classes
+

@@ -33,3 +33,23 @@ static_configs:
   annotations:
     summary: http error codes 5xx have been recorded for the past 15 minutes
 ```
+
+## Calculating Ratios
+https://www.robustperception.io/using-group_left-to-calculate-label-proportions
+
+```
+cache_usage{event="HIT", source="ISomeClass"} 2868
+cache_usage{event="MISS", source="ISomeClass"} 3036
+cache_usage{event="REQUESTED", source="ISomeClass"} 5904
+
+```
+
+```
+# ratio of cache hit to miss
+cache_usage{event=~"HIT|MISS",  source="IClassifyServiceClient"} / 
+ignoring(event) group_left sum without (event) (cache_usage{event="REQUESTED",source="IClassifyServiceClient"})
+```
+
+
+
+

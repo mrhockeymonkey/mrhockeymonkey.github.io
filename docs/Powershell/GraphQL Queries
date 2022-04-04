@@ -4,7 +4,7 @@
 
 ```plain
 query {
-  node(id:"MDEwOlJlcG9zaXRvcnk0Nw==") {
+  node(id:"<YOUR_NODE_ID>") {
     ... on Repository {
       nameWithOwner
     }

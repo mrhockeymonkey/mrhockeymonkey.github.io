@@ -1,0 +1,24 @@
+# GraphQL Queries
+
+## Example GitHub Query
+
+```plain
+query {
+  node(id:"MDEwOlJlcG9zaXRvcnk0Nw==") {
+    ... on Repository {
+      nameWithOwner
+    }
+  }
+}
+```
+
+```powershell
+$token = "ghp_XXXXXXXXX" | ConvertTo-SecureString -AsPlainText
+$body = [PSCustomObject]@{query = $((gc -raw query.json).ToString())} | ConvertTo-Json 
+$r = irm -Method post -Uri "https://YOUR_GH/api/graphql" -Authentication Bearer -Token $token -Body $body 
+$r.data
+
+node
+----
+@{nameWithOwner=Org/RepoName}
+```

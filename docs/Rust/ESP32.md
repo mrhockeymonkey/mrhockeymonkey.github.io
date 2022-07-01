@@ -4,13 +4,13 @@
 
 ```powershell
 # install rustup https://rustup.rs/
-# install VS 2022 Community w/ C++ Build Tools & Windows SDK
+# install VS 2022 Community w/ Desktop C++ workload
+# download xtensa toolchain and put in PATH https://github.com/espressif/crosstool-NG/releases
 
-# check using stable toolchain
-rustc -V
+# open cmd at "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build"
+vcvars64.bat
 
-#install tools
-rustup component add llvm-tools-preview
-cargo install cargo-binutils
+# switch to nightly rust toolchain
+rustup default nightly
 
 ```

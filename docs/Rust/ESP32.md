@@ -60,11 +60,21 @@ $env:PIP_USER="no"
 cargo generate --git https://github.com/esp-rs/esp-idf-template cargo
 ```
 
-- add the following to `.cargo/config.toml` to avoid 
+- add the following to `.cargo/config.toml` to avoid
 ```toml
 [env]
 ...
 ESP_IDF_TOOLS_INSTALL_DIR = { value = "global" } # Use the esp-idf dir at ~/.espressif
+```
+
+- suggested dependencies
+```toml
+[dependencies]
+esp-idf-sys = { version = "0.31.6", features = ["binstart"] }
+esp-idf-svc = { version = "0.42", features = ["experimental", "alloc"] }
+embedded-svc = "0.22"
+log = "0.4"
+esp_idf_logger = "0.1.1"
 ```
 
 

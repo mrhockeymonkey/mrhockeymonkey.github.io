@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.FunctionalConcepts", "CS.FunctionalConcepts\CS.FunctionalConcepts.csproj", "{DFAD9928-7860-4A05-97F4-F5AF0A6553E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.Closures", "CS.Closures\CS.Closures.csproj", "{04DAAF18-A6FE-46BC-81FA-F6FBE81B8DC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.Memoize", "CS.Memoize\CS.Memoize.csproj", "{521F79F7-73C3-47B8-B696-3F07B75BB344}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFAD9928-7860-4A05-97F4-F5AF0A6553E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFAD9928-7860-4A05-97F4-F5AF0A6553E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFAD9928-7860-4A05-97F4-F5AF0A6553E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFAD9928-7860-4A05-97F4-F5AF0A6553E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04DAAF18-A6FE-46BC-81FA-F6FBE81B8DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DAAF18-A6FE-46BC-81FA-F6FBE81B8DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DAAF18-A6FE-46BC-81FA-F6FBE81B8DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DAAF18-A6FE-46BC-81FA-F6FBE81B8DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{521F79F7-73C3-47B8-B696-3F07B75BB344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{521F79F7-73C3-47B8-B696-3F07B75BB344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{521F79F7-73C3-47B8-B696-3F07B75BB344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{521F79F7-73C3-47B8-B696-3F07B75BB344}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

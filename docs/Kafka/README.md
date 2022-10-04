@@ -49,11 +49,15 @@ services:
 ls /usr/bin/kafka*
 
 # list topics 
-kafka-topics --zookeeper localhost --describe
+kafka-topics --bootstrap-server localhost:9092 --describe
 
 # update topics
-kafka-topics --zookeeper localhost --alter --topic cmdb_export --partitions 2
+kafka-topics --bootstrap-server localhost:9092 --alter --topic cmdb_export --partitions 2
 
 # view consumer group offset and lag
-kafka-consumer-groups --bootstrap-server broker:29092 --all-topics --all-groups --describe
+kafka-consumer-groups --bootstrap-server localhost:9092 --all-topics --all-groups --describe
+
+# purge messages per partition (see https://www.baeldung.com/kafka-purge-topic)
+echo -n '{"partitions": [{"topic": "purge-scenario","partition": 1,"offset": -1}],"version": 1}' > /tmp/purge.json
+kafka-delete-records --bootstrap-server localhost:9092 --offset-json-file /tmp/purge.json
 ```

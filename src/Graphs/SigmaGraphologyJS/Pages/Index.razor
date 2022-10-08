@@ -1,0 +1,33 @@
+﻿@page "/"
+@inject IJSRuntime JS;
+@inject ILogger<Index> Log;
+
+<PageTitle>Index</PageTitle>
+
+<h1>Graphology + Sigma JS</h1>
+
+<div class="row col-12">
+    <div class="card text-bg-dark mb-3">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <div id="graph-container" style="width: 100px;height: 100px"></div>
+      </div>
+    </div>
+</div>
+
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("createGraph");
+            Log.LogInformation("first render");
+        }
+        Log.LogInformation("render");
+    }
+
+}
+
+

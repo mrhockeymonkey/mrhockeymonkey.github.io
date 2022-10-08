@@ -1,0 +1,21 @@
+{
+  "name": "Npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack ./index.js --output-path ../wwwroot/js --output-filename index.bundle.js --mode=development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "graphology": "^0.25.0",
+    "graphology-layout-force": "^0.2.4",
+    "sigma": "^2.3.1"
+  }
+}

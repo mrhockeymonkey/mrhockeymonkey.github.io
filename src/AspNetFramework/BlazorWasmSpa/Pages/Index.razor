@@ -1,0 +1,42 @@
+﻿@page "/"
+@using BlazorWasmSpa.Data
+@using Microsoft.EntityFrameworkCore
+@* @implements IDisposable *@
+@inject IDbContextFactory<ApplicationDbContext> ContextFactory
+@inject IDataSynchronizer DataSynchronizer
+@inject ILogger<Index> Logger
+
+<PageTitle>Inventory</PageTitle>
+
+<p>@(_entity == null ? "" : _entity.PlantName)</p>
+
+@code {
+
+    private ApplicationDbContext? _context;
+    private PlantEntity? _entity;
+    
+
+    protected override async Task OnInitializedAsync()
+    {
+        // _context = await ContextFactory.CreateDbContextAsync();
+        // _entity = await _context.Plants.Where(p => p.PlantId == 1).SingleAsync();
+        // Logger.LogInformation($"Got {_entity.PlantName}");
+        DataSynchronizer.OnProgress += HandleProgress;
+        DataSynchronizer.OnCompleted += StateHasChanged;
+    
+        await DataSynchronizer.SynchronizeAsync();
+    }
+    
+    private void HandleProgress(int progress)
+    {
+        StateHasChanged();
+    }
+    
+    public void Dispose()
+    {
+        _context?.Dispose();
+        DataSynchronizer.OnProgress -= HandleProgress;
+        DataSynchronizer.OnCompleted -= StateHasChanged;
+    }
+
+}

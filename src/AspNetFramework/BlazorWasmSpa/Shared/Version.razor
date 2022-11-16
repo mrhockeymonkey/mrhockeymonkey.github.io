@@ -1,0 +1,17 @@
+﻿@using System.Reflection
+<div>
+    @_displayVersion
+</div>
+
+@code {
+    private string _displayVersion = String.Empty;
+
+    protected override void OnInitialized()
+    {
+        var v = Assembly.GetEntryAssembly()?.GetName().Version;
+        _displayVersion = v != null
+            ? $"v{v.Major}.{v.Minor}.{v.Build}"
+            : "v0.0.0";
+    }
+
+}

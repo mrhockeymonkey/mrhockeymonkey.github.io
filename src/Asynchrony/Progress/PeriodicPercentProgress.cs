@@ -1,41 +1,46 @@
-using Microsoft.AspNetCore.SignalR;
+
 
 namespace Progress;
 
-public sealed class ReconcilerProgressReporter : IReconcilerProgressReporter
+/// <summary>
+/// Provides an IProgress<T> that counts total and completed items and
+/// periodically raises an event containing the percent progressed as a double
+///
+/// Does not capture SynchronizationContext like Progress<T>
+/// </summary>
+public sealed class PeriodicPercentProgress<T> : IProgress<T>, IAsyncDisposable
 {
-    private readonly IHubContext<ActivityHub, IActivity> _activityHub;
-    private readonly ILogger<ReconcilerProgressReporter> _logger;
     private int _total;
     private int _updated;
     private bool _shouldNotify;
     private Task _delayTask;
-    private const int DelayTimeMs = 500;
+    private int _delayMs = 500;
     private bool _disposed;
     private static readonly SemaphoreSlim ShouldNotifySemaphore = new(1,1);
+
+    public event Action<double>? ProgressChanged;
     
-    public ReconcilerProgressReporter(
-        IHubContext<ActivityHub, IActivity> activityHub, 
-        ILogger<ReconcilerProgressReporter> logger)
+    public PeriodicPercentProgress(int delayMs, int total = 0)
     {
-        _activityHub = activityHub ?? throw new ArgumentNullException(nameof(activityHub));
-        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        _total = 0;
+        _delayMs = delayMs;
+        _total = total;
         _updated = 0;
         _shouldNotify = true;
         _delayTask = Task.CompletedTask;
-
     }
-
-    public void ReportTotal(int total) => _total = total;
-
-    public void ReportAssetUpdated()
+    
+    public void Report(T value)
     {
         Interlocked.Increment(ref _updated);
         _ = DelayedNotification();
     }
 
-
+    /// <summary>
+    /// Allows you to report the total sometime after you have already started reporting progress
+    /// For example if you start getting item details before you have got all pages of items from a rest api
+    /// </summary>
+    public void ReportTotal(int total) => _total = total;
+    
     private async Task DelayedNotification()
     {
         if (!_shouldNotify) return;
@@ -46,11 +51,11 @@ public sealed class ReconcilerProgressReporter : IReconcilerProgressReporter
             if (!_shouldNotify) return;
             _shouldNotify = false;
             
-            _delayTask = Task.Delay(DelayTimeMs);
+            _delayTask = Task.Delay(_delayMs);
             await _delayTask;
             
-            _logger.LogInformation($"Reconcile progress: {Progress:P1}");
-            await _activityHub.Clients.All.SendReconcileProgress(Progress);
+            ProgressChanged?.Invoke(Progress);
+
             _shouldNotify = true;
         }
         finally
@@ -66,8 +71,7 @@ public sealed class ReconcilerProgressReporter : IReconcilerProgressReporter
         if (_disposed) return;
         
         await _delayTask;
-        await _activityHub.Clients.All.SendReconcileComplete();
-        _logger.LogInformation("Reconcile progress reporting complete");
         _disposed = true;
     }
+    
 }

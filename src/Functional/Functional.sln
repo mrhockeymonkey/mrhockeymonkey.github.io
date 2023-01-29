@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.Closures", "CS.Closures\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.Memoize", "CS.Memoize\CS.Memoize.csproj", "{521F79F7-73C3-47B8-B696-3F07B75BB344}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.Monads", "CS.Monads\CS.Monads.csproj", "{7446D5DE-29AB-4BA7-A195-26A2D2FECCCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxCalculator", "TaxCalculator\TaxCalculator.csproj", "{34B31F3D-3AFE-40E1-A35F-EE33234F5473}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{521F79F7-73C3-47B8-B696-3F07B75BB344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{521F79F7-73C3-47B8-B696-3F07B75BB344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{521F79F7-73C3-47B8-B696-3F07B75BB344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7446D5DE-29AB-4BA7-A195-26A2D2FECCCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7446D5DE-29AB-4BA7-A195-26A2D2FECCCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7446D5DE-29AB-4BA7-A195-26A2D2FECCCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7446D5DE-29AB-4BA7-A195-26A2D2FECCCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34B31F3D-3AFE-40E1-A35F-EE33234F5473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B31F3D-3AFE-40E1-A35F-EE33234F5473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B31F3D-3AFE-40E1-A35F-EE33234F5473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B31F3D-3AFE-40E1-A35F-EE33234F5473}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -8,9 +8,13 @@ public async Task BackgroundService_ShouldCatchAndLogErrors(){
         .Setup(m => m.GetData())
         .Throws<Exception>();
 
-    await _sut.StartAsync(CancellationToken.None);
-    await Task.Delay(Timespan.FromSeconds(10));
-    await _sut.StopAsync(CancellationToken.None);
+    using (var cts = new CancellationTokenSource())
+        {
+            await Task.WhenAny(
+                _sut.StartAsync(cts.Token), 
+                Task.Delay(1000, cts.Token));
+            cts.Cancel();
+        }
 
     _client.Verify(m => m.GetData(), Times.AtLeast(1));
     _loggerMock.Verify(

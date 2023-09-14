@@ -2,7 +2,7 @@
 
 ## Prooving that &str points to the program itself
 
-For a while I couldnt understand why `String::from("foo")` was a reference and how this worked so I had a poke around
+For a while I couldnt understand why `String::from("foo")` was a reference and how this worked  and also just assumed that meant it must be allocated on the heap but I didnt understand fully, so I had a poke around
 
 ```rs
 fn main() {

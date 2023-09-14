@@ -21,7 +21,7 @@ fn nothing(){
 }
 ```
 
-Running this with a break point on L15 we can start exploring in GDB (comments added)
+Running this with a break point on `nothing()` we can start exploring in GDB (comments added)
 
 ```bash
 disas

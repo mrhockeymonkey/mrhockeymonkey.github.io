@@ -70,3 +70,6 @@ x/6c 0x555555594069
 0x555555594069:	102 'f'	111 'o'	111 'o'	98 'b'	97 'a'	114 'r'
 ```
 
+TODO : So now I want to understand two more things. How data is stored in the output binary and what happens next
+
+So now we have the data "foo" stored in a register...

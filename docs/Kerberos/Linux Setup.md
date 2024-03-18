@@ -40,3 +40,13 @@ echo $KVNO_VAL
 printf "%s\n" "add_entry -password -p $USERNAME@DOMAIN.COM -e aes256-cts-hmac-sha1-96 -k $KVNO_VAL" "$PASSWORD" "write_kt /tmp/something.kt" "quit" | ktutil
 
 ```
+
+### Check Keytabs
+
+```bash
+# list principals from keytab
+klist -k -t <keytab file name>
+
+# verify keytab can authenticate
+kinit -c <cache name> -k -t <keytab file name> <service principal name>
+```

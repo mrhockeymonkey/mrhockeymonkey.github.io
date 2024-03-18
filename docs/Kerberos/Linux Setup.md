@@ -3,7 +3,7 @@
 ### Docker
 
 ```dockerfile
-FROM docker.artifactory.uberit.net/centos:7.8.2003
+FROM docker.artifactory.domain.com/centos:7.8.2003
 RUN yum install -y krb5-workstation
 ```
 
@@ -37,6 +37,6 @@ rm /tmp/temp_cache.ccache
 echo $KVNO_VAL
 
 # use ktutil to create the keytab
-printf "%s\n" "add_entry -password -p $AWACS_UBERIT_USERNAME@UBERIT.NET -e aes256-cts-hmac-sha1-96 -k $KVNO_VAL" "$AWACS_UBERIT_PASSWORD" "write_kt /tmp/kafkaadapter.kt" "quit" | ktutil
+printf "%s\n" "add_entry -password -p $USERNAME@DOMAIN.COM -e aes256-cts-hmac-sha1-96 -k $KVNO_VAL" "$PASSWORD" "write_kt /tmp/something.kt" "quit" | ktutil
 
 ```

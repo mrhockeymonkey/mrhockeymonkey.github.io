@@ -50,3 +50,16 @@ klist -k -t <keytab file name>
 # verify keytab can authenticate
 kinit -c <cache name> -k -t <keytab file name> <service principal name>
 ```
+
+### SPNs
+you must register every hostname involved! i.e. if you use a cname that points to a real hostname BOTH much be set on the account. 
+
+### Trace
+
+```yaml
+# this works in an asp.net app (helm)
+{{- if .Values.krb5.trace }}
+- name: KRB5_TRACE
+  value: /tmp/krb5_trace.log
+{{- end }}
+```

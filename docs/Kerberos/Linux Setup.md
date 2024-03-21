@@ -54,6 +54,8 @@ kinit -c <cache name> -k -t <keytab file name> <service principal name>
 ### SPNs
 you must register every hostname involved! i.e. if you use a cname that points to a real hostname BOTH much be set on the account. 
 
+This is because tickets are request by A record in some implementations. 
+
 ### Trace
 
 ```yaml

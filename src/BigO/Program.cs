@@ -112,6 +112,7 @@ class Program
             
             if (li <= ri) // then larger is on left and smaller on right, so swap
             {
+                Console.WriteLine($"Swapping {array[li]} and {array[ri]}");
                 (array[li], array[ri]) = (array[ri], array[li]);
                 li++;
                 ri--;

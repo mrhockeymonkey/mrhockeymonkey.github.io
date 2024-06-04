@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.Result", "CS.Result\CS.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.Result.Samples", "CS.Result.Samples\CS.Result.Samples.csproj", "{5D43BC26-F786-410E-8C8E-EED6F8424C9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviourDesign", "BehaviourDesign\BehaviourDesign.csproj", "{9FD7AF30-0A22-4226-B52E-54FAE4C63E59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{5D43BC26-F786-410E-8C8E-EED6F8424C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D43BC26-F786-410E-8C8E-EED6F8424C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D43BC26-F786-410E-8C8E-EED6F8424C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FD7AF30-0A22-4226-B52E-54FAE4C63E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD7AF30-0A22-4226-B52E-54FAE4C63E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD7AF30-0A22-4226-B52E-54FAE4C63E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD7AF30-0A22-4226-B52E-54FAE4C63E59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

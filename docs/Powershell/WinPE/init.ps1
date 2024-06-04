@@ -97,7 +97,7 @@ Try{
 
         Write-Host "Site: $Site"
         
-            $LocalShare = "fs-infra.$Site.sites.uberit.net"
+            $LocalShare = "fs-infra.$Site.sites.domain.com"
             #$LocalShareIp = Test-Connection $LocalShare -Count 1 | Select -ExpandProperty IPV4Address
 
             Write-Host "LocalShare: $LocalShare"

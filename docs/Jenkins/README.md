@@ -61,7 +61,7 @@ def call(body) {
                         usernamePassword(credentialsId: myGitCredential, usernameVariable: 'GITHUB_USERNAME', passwordVariable: 'GIT_TOKEN')
                     ]) {
                         sh "git config http.sslVerify false;"
-                        sh "git config url.\"https://api:${GIT_TOKEN}@git.uberit.net\".insteadOf \"https://git.uberit.net\""
+                        sh "git config url.\"https://api:${GIT_TOKEN}@git.domain.com\".insteadOf \"https://git.domain.com\""
                         sh 'git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master'
                         sh 'git fetch --no-tags'
                     }

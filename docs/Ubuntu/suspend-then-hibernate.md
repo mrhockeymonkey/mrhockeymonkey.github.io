@@ -24,10 +24,24 @@ sudo systemctl sleep-then-hibernate
 If that all works correctly you can configure the system
 
 ```bash
-# this setting doesnt support suspend-then-hibernate
+# to hibernate when idle...
+# (this setting doesnt support suspend-then-hibernate)
 # https://ubuntuhandbook.org/index.php/2021/06/automatic-shutdown-hibernate-on-idle-ubuntu/
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'hibernate'
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 1800
 
+# to hibernate by event
+
+# sudo nano /etc/systemd/logind.conf
+
+HandleLidSwitch=suspend-then-hibernate
+HandleLidSwitchExternalPower=suspend-then-hibernate
+...
+PowerKeyIgnoreInhibited=yes
+...
+IdleAction=lock
+IdleActionSec=5min
+
+# idle action lock becuase suspend seems to block the hibernate after timeout above...
 
 ```

@@ -45,3 +45,43 @@ IdleActionSec=5min
 # idle action lock becuase suspend seems to block the hibernate after timeout above...
 
 ```
+
+To fix wifi adapter missing after hibernate for my Surface 3 Pro
+
+```bash
+# find the driver in use for that card
+lspci -nnk | grep -A3 Ethernet
+
+01:00.0 Ethernet controller [0200]: Marvell Technology Group Ltd. 88W8897 [AVASTAR] 802.11ac Wireless [11ab:2b38]
+	Subsystem: SafeNet (wrong ID) 88W8897 [AVASTAR] 802.11ac Wireless [0001:045e]
+	Kernel driver in use: mwifiex_pcie # < this thing
+	Kernel modules: mwifiex_pcie
+
+# script unload and reload when sleeping with systemd and make it executable
+ll /lib/systemd/system-sleep/
+total 24
+drwxr-xr-x  2 root root 4096 Jul 22 21:56 ./
+drwxr-xr-x 19 root root 4096 Apr 24 11:48 ../
+-rwxr-xr-x  1 root root   92 Oct  6  2022 hdparm*
+-rwxr-xr-x  1 root root  227 Jan  9  2024 sysstat.sleep*
+-rwxr-xr-x  1 root root  219 Feb 12 17:50 unattended-upgrades*
+-rwxr-xr-x  1 root root  187 Jul 22 21:56 wifi_sleep*  # < make this file executable
+
+cat /lib/systemd/system-sleep/wifi_sleep 
+#!/bin/sh
+
+case "$1" in
+	pre)
+		# Unload
+		modprobe -r mwifiex_pcie
+		#touch /home/scott/suspending
+		;;
+	post)
+		# Reload
+		modprobe mwifiex_pcie
+		#touch /home/scott/resuming
+		;;
+esac
+
+
+```

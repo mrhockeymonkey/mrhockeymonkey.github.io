@@ -37,8 +37,6 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-tim
 HandleLidSwitch=suspend-then-hibernate
 HandleLidSwitchExternalPower=suspend-then-hibernate
 ...
-PowerKeyIgnoreInhibited=yes
-...
 IdleAction=lock
 IdleActionSec=5min
 

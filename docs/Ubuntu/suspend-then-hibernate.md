@@ -13,6 +13,9 @@ sudo nano /etc/default/grub
 # update line
 # GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=/dev/sda2"
 
+sudo update-grub
+# reboot
+
 sudo nano /etc/systemd/sleep.conf
 
 # HibernateDelaySec=300

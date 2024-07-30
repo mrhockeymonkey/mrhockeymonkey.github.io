@@ -1,5 +1,48 @@
 # ASP.NET Tests
 
+## WebapplicationFactory for Integration Tests with TestContainers
+
+```c#
+public class MyApplicationFactory : WebApplicationFactory<Program>, IAsyncLifetime
+{
+    private readonly IContainer _memGraph;
+
+    public GraphServiceApplicationFactory()
+    {
+        _memGraph = CreateMemGraphContainer();
+    }
+    
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.UseEnvironment("Development");
+
+        builder.ConfigureTestServices(services =>
+        {
+            // change bootstrap services here
+        });
+    }
+
+    private IContainer CreateMemGraphContainer() => new ContainerBuilder()
+        .WithImage("memgraph/memgraph-mage:1.18.1-memgraph-2.18.1")
+        .WithPortBinding(7687, 7687)
+        .WithPortBinding(7444, 7444)
+        .WithEnvironment("MEMGRAPH_USER", "admin")
+        .WithEnvironment("MEMGRAPH_PASSWORD", "")
+        .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(7687))
+        .Build();
+
+    public async Task InitializeAsync()
+    {
+        await _memGraph.StartAsync();
+    }
+
+    Task IAsyncLifetime.DisposeAsync()
+    {
+        return _memGraph.DisposeAsync().AsTask();
+    }
+}
+```
+
 ## Background Service
 ```c#
 [Test]

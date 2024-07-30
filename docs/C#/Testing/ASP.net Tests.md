@@ -2,6 +2,7 @@
 
 ## WebapplicationFactory for Integration Tests with TestContainers
 
+Setup containers in `MyApplicationFactory.cs`
 ```c#
 public class MyApplicationFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
@@ -41,6 +42,27 @@ public class MyApplicationFactory : WebApplicationFactory<Program>, IAsyncLifeti
         return _memGraph.DisposeAsync().AsTask();
     }
 }
+```
+
+Then use in Xunit class fixture
+
+```c#
+public class MyTests : IClassFixture<MyApplicationFactory>
+{
+    private readonly MyApplicationFactory _factory;
+
+    public BootstrapTests(MyApplicationFactory factory)
+    {
+        _factory = factory;
+    }
+
+    [Fact]
+    public void Test()
+    {
+        var driver = _factory.Services.GetRequiredService<IDriver>();
+        using var session = driver.Session();
+        // etc
+    }
 ```
 
 ## Background Service

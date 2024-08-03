@@ -33,3 +33,23 @@ fn main() -> Result<(), AppError> {
         .map_err(|e| AppError::MissingEnvVar("SOME_ENV_VAR".to_string()))?;
 }
 ```
+
+Or for nicer output use `color_eyre`
+
+```rs
+fn main() -> color_eyre::Result<()> {
+    color_eyre::install()?;
+    let some_var = env::var("SOME_ENV_VAR")
+        .map_err(|e| AppError::MissingEnvVar("SOME_ENV_VAR".to_string()))?;
+}
+```
+```plain
+Error: 
+   0: Missing environment variable 'SOME_ENV_VAR'!
+
+Location:
+   src/main.rs:27
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ BACKTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                                ⋮ 5 frames hidden ⋮                 
+```

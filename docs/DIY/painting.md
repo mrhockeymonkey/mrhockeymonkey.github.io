@@ -25,6 +25,14 @@ I think I could do it in two next time but depends on size of the room
 ## Prep
 ### Cleaning
 
+For Mould
+
+- Spray with vinegar and leave for 30 mins
+- spray and wipe with more vinegar using kitchen towel
+- Mix bicarbonate and 50 degree water in spray bottle
+- spray and leave for 30 mins
+- spray and wipe with more solution using kitchen towel
+
 * Sand walls using course to remove old paint, follow with finer, ensure smooth
 * Wipe down with damp cloth to remove dust
 * (optional) spray walls with sugar soap spray and wipe down with clean sponge
@@ -32,8 +40,33 @@ I think I could do it in two next time but depends on size of the room
 
 ### Repairs
 
-* If there is any mould to address, spray liberally with white vinegar, leave for 60 minutes, Wipe away with vinegar/water solution. spray agin with vinegar and leave to dry. Bleach is not good for removing mould. 
-* If there are dents, small holes or other light damage, remove flakes, paint with primer, fill with filler and smooth down with knife, leave to dry and sand down with fine grit until smooth, use dryish damp clother to remove dust
+
+
+Fill any hairline cracks
+
+- Rake out cracks, us blade at 45 degree angle to create a hold. _\```/_ is good, not _/\_
+- hoover and brush any dust/debris
+- lightly wet any raw plaster
+- fill using fine filler, I prefer Bartoline (MIX WELL it should be a smooth paste)
+- Sand down using 100g soft sand pad.
+- Spot Prime
+
+Fill any flaked paint or dents
+
+- remove all flakey paint
+- sand well with 180g
+- fill using fine filler
+- sand with 100g soft pad
+- spot prime
+
+Fill any screw holes or nail damage
+
+- Sand well down using 180g
+- For drill holes sand just inside to create surface for filler to attach to
+- For blown plaster from nails spot prime FIRST
+- Fill using all purpose filler, I prefer Bartoline (for deep holes you may need to push in and add another layer after dry)
+- sand down using 100g soft sand pad
+- spot prime 
 
 ### Remove Towel Rail
 This was scary, plumbing is scary. Its doable and you will get a much much better finish

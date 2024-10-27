@@ -33,6 +33,8 @@ For Mould
 - spray and leave for 30 mins
 - spray and wipe with more solution using kitchen towel
 
+
+??
 * Sand walls using course to remove old paint, follow with finer, ensure smooth
 * Wipe down with damp cloth to remove dust
 * (optional) spray walls with sugar soap spray and wipe down with clean sponge

@@ -65,6 +65,26 @@ public class MyTests : IClassFixture<MyApplicationFactory>
     }
 ```
 
+## Override config sources
+
+https://github.com/dotnet/aspnetcore/issues/37680#issuecomment-1235651426
+
+```c#
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.UseEnvironment("Development");
+        
+        var config = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>()
+            {
+                { $"{MemGraphConfiguration.Section}:Uri", "bolt://localhost:7687" },
+                { $"{MemGraphConfiguration.Section}:Username", "admin" },
+                { $"{MemGraphConfiguration.Section}:Password", "password" },
+            })
+            .Build();
+        builder.UseConfiguration(config);
+```
+
 ## Background Service
 ```c#
 [Test]

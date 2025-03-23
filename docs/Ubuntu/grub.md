@@ -57,3 +57,15 @@ menuentry 'Windows Boot Manager (Safe Mode on /dev/nvme0n1p2)' --class windows -
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi /SAFEBOOT:Minimal
 }
 ```
+
+## Grub command line
+
+On the grub menu you can press `c` to get a grub command line
+
+```plain
+# list disk and partitions
+ls
+
+# look for files
+ls (hd0,gpt1)/efi/Microsoft/Boot
+```

@@ -1,0 +1,57 @@
+<#
+    .NOTES
+    Schema can be found here https://docs.microsoft.com/en-us/uwp/schemas/tiles/toastschema/schema-root
+#>
+Function Send-ToastNotification {
+    [CmdletBinding(DefaultParameterSetName = 'Simple')]
+    param(
+        [Parameter()]
+        [String]$ComputerName = 'localhost',
+    
+        [Parameter(Mandatory, ParameterSetName='Simple')]
+        [String]$Message, 
+
+        [Parameter(ParameterSetName='Simple')]
+        [String]$ImagePath, 
+
+        [Parameter(Mandatory, ParameterSetName='Custom')]
+        [String]$Content
+    )
+    
+    If ($PSBoundParameters.ContainsKey('Message')) {
+        $Msg = "<text id=`"1`">$Message</text>"
+    }
+    If ($PSBoundParameters.ContainsKey('ImagePath')) {
+        $Img = "<image id=`"2`" src=`"$ImagePath`"></image>"
+    }
+    
+    If ($PSBoundParameters.ContainsKey('Xml')) {
+        $template = $Content
+    }
+    else {
+        $template = @"
+        <toast>
+            <visual>
+            <binding template="ToastGeneric">
+                {0}
+                {1}
+            </binding>
+            </visual>
+        </toast>
+"@ -f $Msg, $Img
+    }
+    
+    Write-Debug $template
+    
+    Invoke-Command -ComputerName $ComputerName -ArgumentList $template  -ScriptBlock {
+        Param($template)
+        [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
+        [Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
+        [Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] | Out-Null
+        $APP_ID = '110366bd-56e2-47ed-9bdf-3ce1fa408b6c'
+        $xml = New-Object Windows.Data.Xml.Dom.XmlDocument
+        $xml.LoadXml($template)
+        $toast = New-Object Windows.UI.Notifications.ToastNotification $xml
+        [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($APP_ID).Show($toast)
+    }
+}

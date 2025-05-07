@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <MicrosoftExtensionsAIVersion>9.4.3-preview.1.25230.7</MicrosoftExtensionsAIVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="ModelContextProtocol" Version="0.1.0-preview.12" />
+    <PackageVersion Include="ModelContextProtocol.AspNetCore" Version="0.1.0-preview.12" />
+    <PackageVersion Include="OpenAI" Version="2.2.0-beta.4" />
+    <PackageVersion Include="Microsoft.Extensions.AI" Version="$(MicrosoftExtensionsAIVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.AI.OpenAI" Version="$(MicrosoftExtensionsAIVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
+  </ItemGroup>
+</Project>

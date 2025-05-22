@@ -1,5 +1,7 @@
 # Suspend Then Hibernate
 
+useful resource: https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/
+
 Use a swap partition, I had no success with swapfile
 
 ```bash

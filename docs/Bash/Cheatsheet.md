@@ -54,3 +54,14 @@ find ./dir -type f -not \( -name hidden \)
 -name '*.md'
 -printf "\"%p\" "
 ```
+
+## Get top 10 IP address with count of established connections
+
+```bash
+ss -tnp | awk '
+{
+    gsub(/\[::ffff:/, "", $5); gsub(/\]/, "", $5);
+    split($5, remote, ":");
+    print remote[1];
+}' | sort | uniq -c | sort -nr | head -n 10
+```

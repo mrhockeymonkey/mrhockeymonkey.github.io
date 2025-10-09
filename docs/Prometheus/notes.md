@@ -1,5 +1,18 @@
 # Prometheus Notes
 
+## Useful to troubleshoot
+
+```plain
+// check is a scrape was successful (1) or failed (0)
+up{k8s.namespace.name="foo",service="bar"}
+
+// how long a scrape took
+scrape_duration_seconds{job="foo"}
+
+// how many metrics a scrape recorded
+scrape_samples_scraped{job="foo"}
+```
+
 ## Federate Data
 ```plain
 /federate?match[]={__name__!=""}

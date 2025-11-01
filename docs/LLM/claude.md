@@ -9,4 +9,7 @@
 
 # go back to a point in time
 ESC ESC
+
+# enable auto-edit or thinking mode
+SHIFT + TAB
 ```

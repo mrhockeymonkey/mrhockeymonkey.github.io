@@ -78,6 +78,12 @@ boot
 ## Windows Recovery
 
 ```bash
-# fixes boot efi?
-bcdboot C:\Windows /s S: /f UEFI
+# Find boot partition and set to S:
+desikpart
+lis vol
+sel vol 3
+assign lettter=S
+
+# repair bootmgfw.efi (Check D:\Windows is the actualy Windows partition)
+bcdboot D:\Windows /s S: /f UEFI
 ```

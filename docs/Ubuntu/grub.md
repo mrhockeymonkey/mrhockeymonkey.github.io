@@ -68,4 +68,9 @@ ls
 
 # look for files
 ls (hd0,gpt1)/efi/Microsoft/Boot
+
+# boot
+set root=(hd0,gpt2)
+chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+boot
 ```

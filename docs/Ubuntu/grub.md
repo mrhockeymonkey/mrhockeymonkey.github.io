@@ -74,3 +74,10 @@ set root=(hd0,gpt2)
 chainloader /EFI/Microsoft/Boot/bootmgfw.efi
 boot
 ```
+
+## Windows Recovery
+
+```bash
+# fixes boot efi?
+bcdboot C:\Windows /s S: /f UEFI
+```

@@ -1,9 +1,18 @@
 # Certificates
 
+
+
+```bash
+#Add .crt to /usr/local/share/ca-certificates
+sudo update-ca-certificates
+```
+
 ```bash
 # get info on cert from server
 openssl s_client -connect "hostname.com:443" -showcerts
+```
 
+```bash
 # test ssl verify on a chain of certs
 openssl s_client -connect bedrock-runtime.us-east-1.amazonaws.com:443     -CApath /etc/ssl/certs -showcerts </dev/null 2>&1 | grep -E 'depth|verify|issuer|subject'
 

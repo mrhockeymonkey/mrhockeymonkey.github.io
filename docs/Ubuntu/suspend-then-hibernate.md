@@ -49,7 +49,7 @@ IdleActionSec=5min
 
 ```
 
-To fix wifi adapter missing after hibernate for my Surface 3 Pro
+### To fix wifi adapter missing after hibernate for my Surface 3 Pro
 
 ```bash
 # find the driver in use for that card
@@ -87,4 +87,17 @@ case "$1" in
 esac
 
 
+```
+
+### To fix lid open locking screen after 30s on blade
+
+`/lib/systemd/system-sleep/lid-fix.sh`
+
+```bash
+#!/bin/sh
+case "$1" in
+  post)
+    modprobe -r button && modprobe button
+    ;;
+esac
 ```

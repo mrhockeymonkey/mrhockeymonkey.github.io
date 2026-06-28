@@ -1,7 +1,7 @@
 # Honey Chipotle Chicken
 
 ### Ingrediants
-- dried peppers chipotle + ohers ??
+- dried peppers chipotle + ohers ?? (ratio: 3 ancho, 2 guajillo, 1 de arbol)
 - 6 Skinless chicken thighs
 - 1 tbsp soy sauce
 - 2 tbsp apple cider vinegar
